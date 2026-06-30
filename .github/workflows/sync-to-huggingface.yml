@@ -1,0 +1,62 @@
+name: Sync to HuggingFace Space
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install HuggingFace Hub
+        run: |
+          pip install huggingface_hub
+
+      - name: Sync to HuggingFace Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python -c "
+          from huggingface_hub import HfApi
+          import os
+          
+          api = HfApi()
+          
+          # Files to sync
+          files_to_sync = [
+              'volcanic-sand-funnel.html',
+              'volcanic-sand-landing.html',
+              'SPACE_README.md',
+              'README.md',
+              '.gitignore'
+          ]
+          
+          space_id = 'FAJU85/gesso-tesst'
+          
+          for file in files_to_sync:
+              if os.path.exists(file):
+                  print(f'Uploading: {file}')
+                  api.upload_file(
+                      path_or_fileobj=file,
+                      path_in_repo=file,
+                      repo_id=space_id,
+                      repo_type='space',
+                      token=os.environ.get('HF_TOKEN')
+                  )
+              else:
+                  print(f'Skipped (not found): {file}')
+          
+          print(f'\\n✅ Synced to https://huggingface.co/spaces/{space_id}')
+          "
