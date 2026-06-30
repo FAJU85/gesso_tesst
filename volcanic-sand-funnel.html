@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volcanic Sand Soap Bar | Limited Stock Alert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Announcement Bar - Urgency */
+        .announcement-bar {
+            background: #c0392b;
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            font-weight: bold;
+            font-size: 0.95rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+
+        /* Header */
+        header {
+            background: #1a1a1a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #27ae60;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .stock-indicator {
+            background: #c0392b;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section - Pattern: Anchoring + Scarcity */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f0f 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%2327ae60" opacity="0.1"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 30px rgba(39, 174, 96, 0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-anchor {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            color: #777;
+            text-decoration: line-through;
+            margin-right: 1rem;
+        }
+
+        .current-price {
+            font-size: 2.5rem;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: rgba(192, 57, 43, 0.2);
+            border: 2px solid #c0392b;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: #1a1a1a;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .countdown-label-small {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        /* Stock Progress Bar */
+        .stock-container {
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stock-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .stock-warning {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #333;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            border-radius: 6px;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 1.2rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 30px rgba(39, 174, 96, 0.4);
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 40px rgba(39, 174, 96, 0.6);
+        }
+
+        .cta-button::after {
+            content: '🔒 Secure Checkout';
+            display: block;
+            font-size: 0.75rem;
+            font-weight: normal;
+            margin-top: 0.3rem;
+            opacity: 0.9;
+        }
+
+        /* Social Proof Bar */
+        .social-proof-bar {
+            background: #1a1a1a;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .proof-item {
+            color: #888;
+        }
+
+        .proof-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .proof-label {
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Problem/Agitation Section - Pattern: Pain Points */
+        .problem-section {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #c0392b;
+            position: relative;
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .problem-card p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section - Pattern: Hope */
+        .solution-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            position: relative;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .solution-image {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 50px rgba(39, 174, 96, 0.3);
+        }
+
+        .solution-image-inner {
+            background: #0f0f0f;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .soap-mockup {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-text h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-text p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .solution-benefits {
+            list-style: none;
+        }
+
+        .solution-benefits li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #333;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .solution-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        /* Authority Section - Pattern: Credibility */
+        .authority-section {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .authority-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .authority-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .authority-card h3 {
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+
+        .authority-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Reviews Section - Pattern: Social Proof */
+        .reviews-section {
+            padding: 4rem 0;
+            background: #16213e;
+        }
+
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .big-rating {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .rating-stars {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+
+        .rating-count {
+            color: #888;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: white;
+        }
+
+        .verified-badge {
+            background: #27ae60;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+        }
+
+        .review-stars {
+            color: #f39c12;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .review-date {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Guarantee Section - Pattern: Risk Reversal */
+        .guarantee-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .guarantee-box {
+            background: #1a1a1a;
+            border: 3px solid #27ae60;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantee-box h2 {
+            color: #27ae60;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-box p {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantee-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .guarantee-feature {
+            background: rgba(39, 174, 96, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .guarantee-feature h4 {
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+
+        .guarantee-feature p {
+            color: #888;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Ingredients Section - Pattern: Transparency */
+        .ingredients-section {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .ingredients-box {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .ingredients-list {
+            color: #888;
+            line-height: 2;
+            font-size: 0.95rem;
+        }
+
+        .highlight-ingredient {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Comparison Section - Pattern: Contrast */
+        .comparison-section {
+            padding: 4rem 0;
+            background: #16213e;
+        }
+
+        .comparison-table {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 1.2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row.header {
+            background: #0f0f0f;
+            font-weight: bold;
+        }
+
+        .comparison-row.our-product {
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .comparison-cell {
+            padding: 0.5rem;
+            color: #aaa;
+        }
+
+        .comparison-cell:first-child {
+            color: white;
+        }
+
+        .comparison-cell.yes {
+            color: #27ae60;
+        }
+
+        .comparison-cell.no {
+            color: #c0392b;
+        }
+
+        /* Final CTA - Pattern: Urgency + Scarcity */
+        .final-cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta .cta-button {
+            background: #0a0a0a;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta .cta-button:hover {
+            background: #1a1a1a;
+        }
+
+        .urgency-note {
+            margin-top: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sticky Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 1rem;
+            z-index: 999;
+            border-top: 2px solid #27ae60;
+        }
+
+        .mobile-cta .cta-button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #666;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #27ae60;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comparison-row .comparison-cell:first-child {
+                grid-column: 1 / -1;
+                margin-bottom: 0.5rem;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 70px;
+            }
+
+            .countdown-timer {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .countdown-value {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Exit Intent Popup */
+        .exit-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #1a1a1a;
+            border: 3px solid #c0392b;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .popup-content h2 {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-content p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .popup-discount {
+            background: #c0392b;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            background: #1a1a1a;
+            border: 1px solid #27ae60;
+            border-radius: 10px;
+            padding: 1rem;
+            display: none;
+            z-index: 9999;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+            max-width: 350px;
+        }
+
+        .toast-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .toast-icon {
+            font-size: 1.5rem;
+        }
+
+        .toast-title {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .toast-message {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ⚠️ LIMITED STOCK: Only 47 bars remaining at this price!
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">🌋 Royal Aruba Aloe</div>
+            <div class="stock-indicator">🔥 23 people viewing now</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">⭐ #1 Best Seller - Bar Soaps</span>
+            <h1>Volcanic Sand Soap Bar</h1>
+            <p class="subtitle">Transform Your Skin in 14 Days or Your Money Back</p>
+            
+            <div class="price-anchor">
+                <span class="original-price">$10.00</span>
+                <span class="current-price">$7.00</span>
+                <span class="savings-badge">SAVE 30%</span>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-label">⏰ FLASH SALE ENDS IN:</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">04</div>
+                        <div class="countdown-label-small">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">32</div>
+                        <div class="countdown-label-small">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">18</div>
+                        <div class="countdown-label-small">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stock Progress -->
+            <div class="stock-container">
+                <div class="stock-label">
+                    <span>📦 Stock Level</span>
+                    <span class="stock-warning">Only 17% remaining!</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 17%"></div>
+                </div>
+            </div>
+
+            <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">
+                CLAIM YOURS NOW →
+            </a>
+
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">
+                🔒 3,847 sold this month • Free shipping on orders $50+
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof-bar">
+        <div class="container proof-grid">
+            <div class="proof-item">
+                <div class="proof-number">28,000+</div>
+                <div class="proof-label">Happy Customers</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">4.9★</div>
+                <div class="proof-label">Average Rating</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">96%</div>
+                <div class="proof-label">Would Recommend</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">100%</div>
+                <div class="proof-label">Money-Back Guarantee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">Does This Sound Familiar?</h2>
+            <p class="section-subtitle">You're not alone. Thousands struggle with these skin issues daily.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😫</div>
+                    <h3>Rough, Dry Skin</h3>
+                    <p>Regular soaps strip your skin of natural oils, leaving it feeling tight, flaky, and uncomfortable all day.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔴</div>
+                    <h3>Uneven Skin Texture</h3>
+                    <p>Dead skin cells build up, creating a dull appearance and rough patches that makeup can't hide.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Wasted Money on Products</h3>
+                    <p>You've tried expensive scrubs, chemical peels, and treatments that promise results but deliver nothing.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>No Time for Complex Routines</h3>
+                    <p>Multi-step skincare routines are exhausting. You need something that works while you shower.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-image">
+                    <div class="solution-image-inner">
+                        <div class="soap-mockup">🌋</div>
+                        <h3 style="color: #27ae60;">Volcanic Sand Soap</h3>
+                        <p style="color: #888; font-size: 0.9rem;">Natural Exfoliation Bar</p>
+                    </div>
+                </div>
+                <div class="solution-text">
+                    <h2>Discover the Secret to Silky Smooth Skin</h2>
+                    <p>Harvested from the pristine beaches of Tahiti, our volcanic sand soap combines ancient natural exfoliation with modern skincare science.</p>
+                    <p>Infused with 100% pure Aruba Aloe Vera gel containing 75+ active compounds, this isn't just soap—it's your daily skin transformation ritual.</p>
+                    
+                    <ul class="solution-benefits">
+                        <li>✓ Gently exfoliates dead skin cells</li>
+                        <li>✓ Oxygenates and regenerates skin</li>
+                        <li>✓ Deep hydration from Aruba Aloe Vera</li>
+                        <li>✓ Fresh herbal scent that energizes</li>
+                        <li>✓ Safe for sensitive skin & daily use</li>
+                        <li>✓ Paraben-free, clean ingredients</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority-section">
+        <div class="container">
+            <h2 class="section-title">Why 28,000+ Customers Trust Us</h2>
+            <p class="section-subtitle">Backed by nature, proven by results</p>
+            
+            <div class="authority-grid">
+                <div class="authority-card">
+                    <div class="authority-icon">🏝️</div>
+                    <h3>Hand-Harvested Aloe</h3>
+                    <p>Grown on our own farm in Aruba since 1939</p>
+                </div>
+                <div class="authority-card">
+                    <div class="authority-icon">🔬</div>
+                    <h3>75+ Active Compounds</h3>
+                    <p>Naturally occurring vitamins, minerals & enzymes</p>
+                </div>
+                <div class="authority-card">
+                    <div class="authority-icon">🌋</div>
+                    <h3>Tahitian Volcanic Sand</h3>
+                    <p>Sourced from pristine volcanic beaches</p>
+                </div>
+                <div class="authority-card">
+                    <div class="authority-icon">👑</div>
+                    <h3>Royal Warrant Holder</h3>
+                    <p>Official supplier to the Royal Family of the Netherlands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="rating-summary">
+                <div class="big-rating">4.9</div>
+                <div class="rating-stars">★★★★★</div>
+                <div class="rating-count">Based on 28 verified reviews</div>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Cassandra</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"If you know you know. Love Aruba's products. Best skin care! I've been using this for 3 months and my skin has never felt smoother."</p>
+                    <div class="review-date">Purchased 3 months ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Sarah M.</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Fantastic exfoliation without being harsh. My skin has never felt smoother. I was skeptical at first but this really works!"</p>
+                    <div class="review-date">Purchased 2 weeks ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Michael R.</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The volcanic sand is perfect for gentle exfoliation. Love the fresh scent! My wife stole mine so I had to order another."</p>
+                    <div class="review-date">Purchased 1 month ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Jennifer L.</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"I have sensitive skin and this doesn't irritate at all. The aloe vera really makes a difference. Highly recommend!"</p>
+                    <div class="review-date">Purchased 5 days ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">David K.</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Worth every penny. I've tried expensive scrubs that don't work half as well. This is now a staple in my routine."</p>
+                    <div class="review-date">Purchased 6 weeks ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Amanda T.</span>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"My dermatologist even noticed the improvement in my skin texture. The natural ingredients are a huge plus for me."</p>
+                    <div class="review-date">Purchased 1 month ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-box">
+                <div class="guarantee-icon">🛡️</div>
+                <h2>100% Risk-Free Guarantee</h2>
+                <p>Try Volcanic Sand Soap for 30 days. If you don't see smoother, healthier skin, we'll refund every penny. No questions asked.</p>
+                
+                <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">
+                    TRY IT RISK-FREE →
+                </a>
+                
+                <div class="guarantee-features">
+                    <div class="guarantee-feature">
+                        <h4>📦 Free Shipping</h4>
+                        <p>On orders over $50</p>
+                    </div>
+                    <div class="guarantee-feature">
+                        <h4>🔒 Secure Payment</h4>
+                        <p>256-bit SSL encryption</p>
+                    </div>
+                    <div class="guarantee-feature">
+                        <h4>↩️ Easy Returns</h4>
+                        <p>30-day money-back</p>
+                    </div>
+                    <div class="guarantee-feature">
+                        <h4>💬 24/7 Support</h4>
+                        <p>We're here to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">How We Compare</h2>
+            <p class="section-subtitle">See why Volcanic Sand Soap outperforms regular exfoliants</p>
+            
+            <div class="comparison-table">
+                <div class="comparison-row header">
+                    <div class="comparison-cell">Feature</div>
+                    <div class="comparison-cell">Volcanic Sand Soap</div>
+                    <div class="comparison-cell">Regular Scrubs</div>
+                </div>
+                <div class="comparison-row our-product">
+                    <div class="comparison-cell">Natural Volcanic Sand</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ No</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Pure Aruba Aloe Vera</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ No</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Paraben-Free</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ Often contains</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Daily Use Safe</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ Too harsh</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">75+ Active Compounds</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ No</div>
+                </div>
+                <div class="comparison-row our-product">
+                    <div class="comparison-cell">30-Day Guarantee</div>
+                    <div class="comparison-cell yes">✓ Yes</div>
+                    <div class="comparison-cell no">✗ Rarely offered</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Price Per Use</div>
+                    <div class="comparison-cell yes">$0.23</div>
+                    <div class="comparison-cell no">$1.50+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+        <div class="container">
+            <h2 class="section-title">What's Inside</h2>
+            <p class="section-subtitle">Complete transparency. No hidden ingredients.</p>
+            
+            <div class="ingredients-box">
+                <div class="ingredients-list">
+                    <span class="highlight-ingredient">Aloe Barbadensis Leaf Juice</span> (Aloe Vera Gel from Aruba), 
+                    <span class="highlight-ingredient">Tahitian Volcanic Sand</span> (Black), 
+                    Water (Aqua/Eau), Sodium Laurate, Propylene Glycol, Sodium Stearate, Sorbitol, Sucrose, 
+                    Glycerin, Decyl Glucoside, Sodium Myristate, <span class="highlight-ingredient">Cocos Nucifera (Coconut) Oil</span>, 
+                    Glyceryl Laurate, Sodium Chloride, Citric Acid, Titanium Dioxide (C.I. 77891), 
+                    Sodium Citrate, Fragrance (Parfum), Tetrasodium Iminodisuccinate, Tetrasodium Etidronate.
+                </div>
+                <p style="margin-top: 1.5rem; color: #27ae60; font-weight: bold;">
+                    🌿 100% Paraben-Free • Cruelty-Free • Safe for Sensitive Skin
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>🔥 Last Chance: Flash Sale Ending Soon!</h2>
+            <p>Join 28,000+ satisfied customers with smoother, healthier skin.</p>
+            
+            <div class="price-anchor">
+                <span class="original-price" style="color: rgba(255,255,255,0.6);">$10.00</span>
+                <span class="current-price" style="color: white; font-size: 3rem;">$7.00</span>
+                <span class="savings-badge" style="background: white; color: #c0392b;">SAVE 30%</span>
+            </div>
+            
+            <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">
+                ADD TO CART NOW →
+            </a>
+            
+            <p class="urgency-note">
+                ⚠️ Only 47 bars left at this price • 23 people viewing this product right now
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="trust-badges">
+                <span>🔒</span>
+                <span>💳</span>
+                <span>🛡️</span>
+                <span>📦</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://arubaaloe.com/pages/our-royal-story">Our Story</a>
+                <a href="https://arubaaloe.com/pages/shipping-handling">Shipping Info</a>
+                <a href="https://arubaaloe.com/pages/returns-refunds">Returns & Refunds</a>
+                <a href="https://arubaaloe.com/pages/privacy-cookie-policy">Privacy Policy</a>
+                <a href="https://arubaaloe.com/pages/terms-of-service">Terms of Service</a>
+            </div>
+            <p class="copyright">© 2026 Royal Aruba Aloe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-cta">
+        <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">
+            CLAIM YOURS - $7.00 →
+        </a>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">×</button>
+            <h2>WAIT! Don't Miss Out! 🛑</h2>
+            <p>Complete your order now and get an exclusive bonus discount!</p>
+            <div class="popup-discount">
+                EXTRA 5% OFF - CODE: VOLCANIC5
+            </div>
+            <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">
+                CLAIM DISCOUNT →
+            </a>
+            <p style="font-size: 0.8rem; margin-top: 1rem; color: #666;">
+                This offer expires in 10 minutes
+            </p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-header">
+            <span class="toast-icon">🛒</span>
+            <span class="toast-title">Recent Purchase</span>
+        </div>
+        <div class="toast-message" id="toastMessage">
+            Someone in New York just purchased Volcanic Sand Soap Bar
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Exit Intent Popup
+        let popupShown = false;
+        
+        function showPopup() {
+            if (!popupShown) {
+                document.getElementById('exitPopup').style.display = 'flex';
+                popupShown = true;
+            }
+        }
+        
+        function closePopup() {
+            document.getElementById('exitPopup').style.display = 'none';
+        }
+        
+        // Detect exit intent (mouse leaving viewport)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                showPopup();
+            }
+        });
+        
+        // Show popup after 30 seconds if not shown
+        setTimeout(() => {
+            showPopup();
+        }, 30000);
+
+        // Toast Notifications (Social Proof)
+        const toastMessages = [
+            "Someone in New York just purchased Volcanic Sand Soap Bar",
+            "Someone in Los Angeles just purchased Volcanic Sand Soap Bar",
+            "Someone in Miami just purchased Volcanic Sand Soap Bar",
+            "Someone in Chicago just purchased Volcanic Sand Soap Bar",
+            "Someone in Houston just purchased Volcanic Sand Soap Bar"
+        ];
+        
+        function showToast() {
+            const toast = document.getElementById('toast');
+            const message = document.getElementById('toastMessage');
+            const randomMessage = toastMessages[Math.floor(Math.random() * toastMessages.length)];
+            
+            message.textContent = randomMessage;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+        
+        // Show first toast after 5 seconds, then every 15-25 seconds
+        setTimeout(() => {
+            showToast();
+            setInterval(() => {
+                showToast();
+            }, Math.random() * 10000 + 15000);
+        }, 5000);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Stock level animation
+        function animateStock() {
+            const stockLevels = [17, 16, 16, 15, 15, 14];
+            const randomLevel = stockLevels[Math.floor(Math.random() * stockLevels.length)];
+            document.querySelector('.progress-fill').style.width = randomLevel + '%';
+            document.querySelector('.stock-warning').textContent = `Only ${randomLevel}% remaining!`;
+        }
+        
+        // Decrease stock every 2-3 minutes
+        setInterval(() => {
+            animateStock();
+        }, 120000 + Math.random() * 60000);
+
+        // Viewer count animation
+        function updateViewers() {
+            const baseViewers = 18;
+            const variance = Math.floor(Math.random() * 10);
+            const viewers = baseViewers + variance;
+            document.querySelector('.stock-indicator').textContent = `🔥 ${viewers} people viewing now`;
+        }
+        
+        setInterval(updateViewers, 8000);
+    </script>
+</body>
+</html>

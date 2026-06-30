@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volcanic Sand Soap Bar | Royal Aruba Aloe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #2c5f2d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-right: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #219a52;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5f2d;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 0.5rem;
+            color: #2c5f2d;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: #f0f0f0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-check {
+            color: #27ae60;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* How to Use Section */
+        .how-to-use {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #2c5f2d;
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5f2d;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 0;
+            background: #f0f0f0;
+        }
+
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 2rem;
+        }
+
+        .review-count {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .review-stars {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #2c5f2d;
+        }
+
+        /* Ingredients Section */
+        .ingredients {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .ingredients-list {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ingredients-list p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #2c5f2d 0%, #1a1a2e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-link {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Royal Aruba Aloe</div>
+            <nav>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#how-to-use" class="nav-link">How to Use</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="nav-link">Shop Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Volcanic Sand Soap Bar</h1>
+            <p class="subtitle">Natural exfoliation with Tahitian volcanic sand for smoother, healthier skin</p>
+            <div class="price-tag">
+                <span class="original-price">$10.00</span>
+                $7.00
+            </div>
+            <br>
+            <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">Add to Cart</a>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose Volcanic Sand Soap?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌋</div>
+                    <h3>Natural Exfoliation</h3>
+                    <p>Tahitian volcanic sand gently removes dead skin cells for a smoother complexion</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Regenerates Skin</h3>
+                    <p>Remineralizing properties oxygenate and regenerate your skin naturally</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌿</div>
+                    <h3>Aloe Vera Infused</h3>
+                    <p>Contains pure Aloe Vera gel from Aruba for deep hydration</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌸</div>
+                    <h3>Fresh Herbal Scent</h3>
+                    <p>Reminds you of wild summer herbs growing in a field</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>Paraben-Free Formula</h3>
+                        <p>Clean ingredients without harmful parabens</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>Gentle on Skin</h3>
+                        <p>Suitable for daily use on body and targeted face treatment</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>Soft & Smooth Results</h3>
+                        <p>Leaves your skin feeling incredibly soft after every use</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>Hand Harvested Aloe</h3>
+                        <p>Aloe Vera from our farm in Aruba</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>75+ Active Compounds</h3>
+                        <p>Natural compounds that calm and nourish skin</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✓</span>
+                    <div>
+                        <h3>For All Skin Types</h3>
+                        <p>Gentle formula suitable for sensitive skin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <h2 class="section-title">How to Use</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>For Face & Neck</h3>
+                    <p>Pass the soap gently over your face in circular movements on wet skin for targeted exfoliation. Then rinse thoroughly.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>For Body</h3>
+                    <p>Manipulate the soap between your hands until a fine foam appears. Apply to your body and enjoy the gentle exfoliation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Rinse & Enjoy</h3>
+                    <p>Rinse off with water and experience soft, smooth, and refreshed skin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="rating-summary">
+                <div class="stars">★★★★★</div>
+                <p class="review-count">Based on 28 reviews • 96% positive</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"If you know you know. Love Aruba's products. Best skin care!"</p>
+                    <p class="review-author">- Cassandra</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Fantastic exfoliation without being harsh. My skin has never felt smoother."</p>
+                    <p class="review-author">- Sarah M.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"The volcanic sand is perfect for gentle exfoliation. Love the fresh scent!"</p>
+                    <p class="review-author">- Michael R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ingredients">
+        <div class="container">
+            <h2 class="section-title">Ingredients</h2>
+            <div class="ingredients-list">
+                <p>Water (Aqua/Eau), Sodium Laurate, Propylene Glycol, Sodium Stearate, Sorbitol, Sucrose, Glycerin, Decyl Glucoside, Sodium Myristate, Aloe Barbadensis Leaf Juice (Aloe Vera Gel from Aruba), Cocos Nucifera (Coconut) Oil, Glyceryl Laurate, Sodium Chloride, Citric Acid, Tahitian Volcanic Sand (Black), Titanium Dioxide (C.I. 77891), Sodium Citrate, Fragrance (Parfum), Tetrasodium Iminodisuccinate, Tetrasodium Etidronate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready for Smoother, Healthier Skin?</h2>
+            <p>Experience the natural exfoliating power of Tahitian volcanic sand combined with Aruba's finest Aloe Vera.</p>
+            <a href="https://arubaaloe.com/collections/bar-soaps/products/volcanic-sand-soap-bar" class="cta-button">Shop Now - $7.00</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://arubaaloe.com/pages/our-royal-story">Our Story</a>
+                <a href="https://arubaaloe.com/pages/shipping-handling">Shipping Info</a>
+                <a href="https://arubaaloe.com/pages/returns-refunds">Returns</a>
+                <a href="https://arubaaloe.com/pages/privacy-cookie-policy">Privacy Policy</a>
+            </div>
+            <p class="copyright">© 2026 Royal Aruba Aloe. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
